@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic-Tac-Toe AI | Minimax & Alpha-Beta</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Demo thuật toán AI bằng JavaScript</p>
+      <h1>Tic-Tac-Toe AI</h1>
+      <p class="subtitle">
+        Minh họa 3 chủ đề: Đệ quy & cây trò chơi, Minimax, Alpha-Beta Pruning.
+      </p>
+    </section>
+
+    <section class="panel controls">
+      <div class="control-group">
+        <label for="algorithm">Thuật toán AI</label>
+        <select id="algorithm">
+          <option value="minimax">Minimax</option>
+          <option value="alphabeta" selected>Alpha-Beta Pruning</option>
+        </select>
+      </div>
+
+      <button id="resetBtn" class="primary">Chơi lại</button>
+    </section>
+
+    <section class="game-layout">
+      <section class="panel game-panel">
+        <div class="players">
+          <div>
+            <span class="label">Bạn</span>
+            <strong>X</strong>
+          </div>
+          <div>
+            <span class="label">AI</span>
+            <strong>O</strong>
+          </div>
+        </div>
+
+        <div id="board" class="board" aria-label="Bàn cờ Tic-Tac-Toe"></div>
+        <p id="status" class="status">Lượt của bạn (X)</p>
+      </section>
+
+      <aside class="panel stats-panel">
+        <h2>Thống kê thuật toán</h2>
+
+        <div class="stat">
+          <span>Nút đã duyệt</span>
+          <strong id="nodesVisited">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>Lần cắt nhánh</span>
+          <strong id="prunedBranches">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>Điểm nước đi AI</span>
+          <strong id="bestScore">-</strong>
+        </div>
+
+        <p class="hint">
+          Minimax duyệt cây bằng đệ quy. Alpha-Beta vẫn cho quyết định tương đương
+          nhưng có thể bỏ qua các nhánh không còn ảnh hưởng đến kết quả.
+        </p>
+      </aside>
+    </section>
+
+    <section class="topics">
+      <article class="panel topic-card">
+        <span>01</span>
+        <h3>Đệ quy & cây trò chơi</h3>
+        <p>
+          Mỗi trạng thái bàn cờ là một nút. Hàm tự gọi lại để thử các nước đi tiếp theo
+          cho đến trạng thái kết thúc.
+        </p>
+      </article>
+
+      <article class="panel topic-card">
+        <span>02</span>
+        <h3>Minimax</h3>
+        <p>
+          AI là MAX và cố chọn điểm lớn nhất. Người chơi là MIN và được giả định sẽ
+          chọn nước đi bất lợi nhất cho AI.
+        </p>
+      </article>
+
+      <article class="panel topic-card">
+        <span>03</span>
+        <h3>Alpha-Beta Pruning</h3>
+        <p>
+          Dùng hai cận alpha và beta để dừng duyệt những nhánh chắc chắn không làm thay
+          đổi quyết định cuối cùng.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
